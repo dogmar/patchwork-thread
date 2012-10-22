@@ -12,6 +12,7 @@ exports['test sortMenu'] = function (test) {
         {weight: 1},
         {weight: 0}
     ];
+
     menu.sortMenu(menuArr, function(err, sortedMenu){
         test.expect(menuArr.length - 1);
         var count = 0;
@@ -28,5 +29,28 @@ exports['test sortMenu'] = function (test) {
                 test.done();
             }
         );
+    });
+}
+
+exports['test saveMenu'] = function (test) {
+    // test data
+    var conf = {
+        Menu: {
+            findOne: function(input, callback){
+                var menu = {
+                    menuArray: null,
+                    save: function(callback){
+                        callback(null);
+                    }
+                };
+                callback(null, menu);
+            }
+        }
+    },
+        menuArr = [];
+
+    // test with existing menu db item
+    menu.saveMenu(menuArr, conf, function(err){
+        test.done();
     });
 }
