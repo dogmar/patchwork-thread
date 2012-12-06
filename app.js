@@ -114,6 +114,9 @@ function indexContent(conf, callback){
                 });
             }
         });
+    },
+    function(path, conf, callback){
+        callback(null)
     }, callback);
 };
 

@@ -78,10 +78,13 @@ exports['test parseDir'] = function (test) {
         fileFunc = function(p, callback){
             testContainer.push(p);
             callback(null);
+        },
+        dirFunc = function(path, conf, callback){
+            callback(null);
         };
 
     test.expect(5);
-    content.parseDir(path, conf, fileFunc, function(err, rawContent){
+    content.parseDir(path, conf, fileFunc, dirFunc, function(err, rawContent){
         test.equal(testContainer[0], 'test1.markdown');
         test.equal(testContainer[1], 'test2.markdown');
         test.equal(testContainer[2], 'test3.md');
