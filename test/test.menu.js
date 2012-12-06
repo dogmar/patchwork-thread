@@ -69,7 +69,6 @@ exports['test menu.buildMenu'] = {
             test.equal(menuArray[2].children[0].title,  'fakeDir/other.md');
             test.equal(menuArray.length, 3);
             test.equal(menuArray[2].children.length, 2);
-            console.log(menuArray);
             test.done();
         });
     }
